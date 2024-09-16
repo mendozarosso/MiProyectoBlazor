@@ -1,0 +1,97 @@
+@page "/AprendeMas"
+
+<PageTitle>Aprende Más</PageTitle>
+
+<div class="container">
+    <h1>Aquí tengo mi lista de videos que use para entender blazor</h1>
+
+    @foreach (var video in videos)
+    {
+        <div class="video-container">
+            <h2>@video.Title</h2>
+            <p>@video.Description</p>
+            <iframe width="560" height="315" src="@video.Url" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    }
+</div>
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #0366d6;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .video-container {
+        margin-bottom: 40px;
+        border: 1px solid #e1e4e8;
+        border-radius: 6px;
+        padding: 20px;
+        background-color: #f6f8fa;
+    }
+
+    h2 {
+        color: #24292e;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #586069;
+        margin-bottom: 15px;
+    }
+
+    iframe {
+        max-width: 100%;
+        border-radius: 6px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+@code {
+    private List<VideoInfo> videos = new List<VideoInfo>
+    {
+        new VideoInfo 
+        { 
+            Title = "Instalación de Blazor en Visual Studio Code", 
+            Description = "Este video te guía a través del proceso de instalación de Blazor en Visual Studio Code.",
+            Url = "https://www.youtube.com/embed/nanls3YKNxg"
+        },
+        new VideoInfo 
+        { 
+            Title = "Explicación Sencilla pero Efectiva de Blazor",
+            Description = "Una introducción concisa y clara a los conceptos fundamentales de Blazor.",
+            Url = "https://www.youtube.com/embed/piNHZAMxVuk"
+        },
+        new VideoInfo 
+        { 
+            Title = "Creación de una Aplicación Blazor desde Cero",
+            Description = "Bueno y no tan complicado de entender.",
+            Url = "https://www.youtube.com/embed/4G_BzLxa9Nw"
+        },
+        new VideoInfo 
+        { 
+            Title = "Podcast the blazor",
+            Description = "Un PodCast para una buena comparacion",
+            Url = "https://www.youtube.com/watch?v=1HNrYmubNF4"
+        },
+        new VideoInfo 
+        { 
+            Title = "Blazor WebAssembly vs Blazor Server",
+            Description = "Compara las dos variantes principales de Blazor y sus casos de uso.",
+            Url = "https://www.youtube.com/embed/Oeh2IJw7Zig"
+        }
+    };
+
+    private class VideoInfo
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Url { get; set; }
+    }
+}

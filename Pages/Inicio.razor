@@ -1,0 +1,109 @@
+@page "/"
+
+<PageTitle>Inicio - Mi Tarea Blazor Por JM</PageTitle>
+
+<div class="home-container">
+    <h1>¡Bienvenido a mi Tarea de Blazor! 🚀</h1>
+    <p>Gracias por visitar esta página y ver mi tarea. 👋</p>
+    <p>El aprendizaje es un tesoro que seguirá a su dueño por todas partes.💡</p>
+    <div class="features">
+        <div class="feature-card">
+            <span class="emoji">🧮</span>
+            <p>Realiza operaciones matemáticas básicas.</p>
+             <NavLink class="nav-link" href="Calculadora">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Calculadora
+            </NavLink>
+            
+        </div>
+        <div class="feature-card">
+            <span class="emoji">📚</span>
+            <p>Explora recursos para aprender Blazor.</p>
+             <NavLink class="nav-link" href="AprendeMas">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Aprende Mas
+            </NavLink>
+        </div>
+    
+    </div>
+</div>
+
+<style>
+    .home-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: var(--background-color);
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    h1 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    p {
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    .motivational {
+        font-style: italic;
+        color: var(--primary-color);
+        margin: 1.5rem 0;
+        font-size: 1.2rem;
+    }
+
+    .features {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+    }
+
+    .feature-card {
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 1rem;
+        width: 200px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .emoji {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .feature-card h3 {
+        margin: 0.5rem 0;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    
+    :root.dark-theme .home-container {
+        background-color: var(--secondary-color);
+    }
+
+    :root.dark-theme .feature-card {
+        background-color: var(--primary-color);
+    }
+
+    :root.dark-theme h1,
+    :root.dark-theme p,
+    :root.dark-theme .motivational {
+        color: var(--text-color);
+    }
+</style>

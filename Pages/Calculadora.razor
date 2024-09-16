@@ -1,0 +1,109 @@
+@page "/Calculadora"
+
+<PageTitle>Calculadora</PageTitle>
+
+<div class="container">
+    <h1>Mega Calculadora por JM </h1>
+    
+    <div class="form-group">
+        <label for="number1">Primer número:</label>
+        <input type="number" id="number1" class="form-control" @bind="number1" />
+    </div>
+    
+    <div class="form-group">
+        <label for="number2">Segundo número:</label>
+        <input type="number" id="number2" class="form-control" @bind="number2" />
+    </div>
+    
+    <div class="btn-group" role="group">
+        <button class="btn btn-primary" @onclick="() => Calculate('+')">Suma ➕</button>
+        <button class="btn btn-primary" @onclick="() => Calculate('-')">Resta ➖</button>
+        <button class="btn btn-primary" @onclick="() => Calculate('*')">Multiplicación ✖️</button>
+        <button class="btn btn-primary" @onclick="() => Calculate('/')">División ➗</button>
+    </div>
+    
+    @if (showResult)
+    {
+        <div class="result">
+            <h2>Resultado: @result</h2>
+        </div>
+    }
+</div>
+
+<style>
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #007bff;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .form-control {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+    }
+    .btn-group {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+    .btn {
+        flex: 1;
+        margin: 0 5px;
+    }
+    .result {
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #e9ecef;
+        border-radius: 4px;
+    }
+</style>
+
+@code {
+    private double number1 = 0;
+    private double number2 = 0;
+    private double result = 0;
+    private bool showResult = false;
+
+    private void Calculate(char operation)
+    {
+        switch (operation)
+        {
+            case '+':
+                result = number1 + number2;
+                break;
+            case '-':
+                result = number1 - number2;
+                break;
+            case '*':
+                result = number1 * number2;
+                break;
+            case '/':
+                if (number2 != 0)
+                {
+                    result = number1 / number2;
+                }
+                else
+                {
+                    result = double.NaN;
+                }
+                break;
+        }
+        showResult = true;
+    }
+}

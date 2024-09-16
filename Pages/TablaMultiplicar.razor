@@ -1,0 +1,104 @@
+@page "/TablaMultiplicar"
+
+<PageTitle>Tabla de Multiplicar</PageTitle>
+
+<div class="container">
+    <h1>Tabla de Multiplicar</h1>
+
+    <div class="input-section">
+        <label for="numero">Ingrese un número:</label>
+        <input type="number" id="numero" @bind="numero" />
+        <button class="btn btn-primary" @onclick="GenerarTabla">Generar Tabla</button>
+    </div>
+
+    @if (mostrarTabla)
+    {
+        <div class="tabla-multiplicar">
+            <h2>Tabla del @numero</h2>
+            <ul>
+                @for (int i = 0; i <= 15; i++)
+                {
+                    <li>@i x @numero = @(i * numero)</li>
+                }
+            </ul>
+        </div>
+    }
+</div>
+
+<style>
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #0366d6;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .input-section {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="number"] {
+        width: 100px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .btn-primary {
+        background-color: #0366d6;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .tabla-multiplicar {
+        background-color: #f6f8fa;
+        border: 1px solid #e1e4e8;
+        border-radius: 6px;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .tabla-multiplicar h2 {
+        color: #24292e;
+        margin-bottom: 10px;
+    }
+
+    .tabla-multiplicar ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .tabla-multiplicar li {
+        margin-bottom: 5px;
+        color: #586069;
+    }
+</style>
+
+@code {
+    private int numero = 0;
+    private bool mostrarTabla = false;
+
+    private void GenerarTabla()
+    {
+        mostrarTabla = true;
+    }
+}
